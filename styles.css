@@ -1,0 +1,180 @@
+:root {
+  --cream: #faf6ec;
+  --ink: #252e26;
+  --muted: #505a4d;
+  --green: #244b3c;
+  --peach: #f2d3c3;
+  --sage: #dce5d5;
+  --butter: #f1e2b6;
+  --rust: #97432f;
+  --line: #d8d1bf;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  color: var(--ink);
+  font: 1rem/1.6 var(--sans);
+}
+main { flex: 1; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--rust); outline-offset: 5px; }
+h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 400; }
+h1 { font-size: clamp(3rem, 6.4vw, 6.3rem); line-height: .98; letter-spacing: -.065em; }
+h2 { font-size: clamp(2.2rem, 4.5vw, 3.7rem); line-height: 1.05; letter-spacing: -.05em; }
+h3 { font-size: clamp(1.65rem, 3vw, 2.15rem); line-height: 1.15; letter-spacing: -.035em; }
+h1 em { color: var(--rust); }
+p { margin: 0; }
+.wrap { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; }
+.skip-link { position: fixed; top: .75rem; left: .75rem; padding: .5rem 1rem; background: white; z-index: 5; transform: translateY(-180%); }
+.skip-link:focus { transform: translateY(0); }
+.site-header { border-bottom: 1px solid var(--line); }
+.header-inner, .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .9rem; }
+.wordmark { display: inline-flex; align-items: center; gap: .65rem; font: 700 1.28rem/1.2 var(--serif); text-decoration: none; }
+.wordmark img { width: 2.65rem; height: 2.65rem; object-fit: contain; background: #000; border-radius: 50%; padding: .25rem; }
+nav { display: flex; align-items: center; flex-wrap: wrap; gap: clamp(.9rem, 3vw, 2rem); }
+nav a { font-size: .9rem; font-weight: 650; text-decoration: none; padding-block: .4rem; }
+nav a:hover, nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: .4em; color: var(--rust); }
+
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-block: clamp(3rem, 8vw, 7rem); }
+.eyebrow { font-size: .77rem; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; color: var(--green); margin-bottom: 1.05rem; }
+.lead { color: var(--muted); font-size: clamp(1.04rem, 1.6vw, 1.25rem); max-width: 35ch; margin-top: 1.4rem; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: 1.65rem;
+  padding: .8rem 1.25rem;
+  background: var(--green);
+  border-radius: .45rem;
+  color: white;
+  font-weight: 650;
+  text-decoration: none;
+}
+.button:hover { background: #19372b; }
+.brand-panel, .shop-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(17rem, 34vw, 28rem);
+  padding: clamp(1rem, 3.5vw, 3rem);
+  border-radius: 8rem 8rem 1rem 1rem;
+  background: var(--peach);
+}
+.brand-panel::before {
+  content: "";
+  position: absolute;
+  inset: .9rem;
+  border: 1px dashed #aa6e58;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.banner { position: relative; width: 100%; object-fit: cover; aspect-ratio: 3.5; object-position: center 23%; border-radius: .55rem; }
+.stitch { position: absolute; color: var(--rust); line-height: 1; font-size: clamp(1.8rem, 3vw, 2.6rem); }
+.stitch-top { top: 13%; right: 17%; }
+.stitch-bottom { bottom: 12%; left: 15%; font-size: 1.6rem; }
+.workshops { padding-block: 1.75rem 3.5rem; border-top: 1px solid var(--line); }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+.text-link { font-weight: 650; color: var(--green); text-underline-offset: .25em; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.card { border-radius: .65rem; padding: clamp(1.3rem, 3.2vw, 2.65rem); }
+.card p { margin-top: .55rem; max-width: 42ch; }
+.card img { border-radius: .35rem; margin-bottom: 1rem; }
+.peach { background: var(--peach); }
+.sage { background: var(--sage); }
+.butter { background: var(--butter); }
+.community { display: grid; grid-template-columns: minmax(8rem, 13rem) 1fr; align-items: center; gap: clamp(1.5rem, 6vw, 5rem); background: var(--sage); padding: clamp(1.4rem, 4vw, 3.5rem); margin-bottom: 3.5rem; border-radius: .75rem; }
+.community img, .shop-art img { border-radius: 50%; }
+.community .lead { max-width: 48ch; }
+.inner-hero { padding-block: clamp(3rem, 8vw, 6.5rem) 2.5rem; }
+.inner-hero .lead { max-width: 52ch; }
+.booking-panel { display: grid; grid-template-columns: 1fr 1.4fr; gap: 1.5rem; align-items: start; background: var(--sage); border-radius: .75rem; padding: clamp(1.4rem, 4vw, 3rem); margin-bottom: 4rem; }
+.booking-panel h2 + p { margin-top: .75rem; }
+.booking-widget { min-width: 0; padding: clamp(1rem, 3vw, 2rem); border: 1px solid var(--line); background: var(--cream); border-radius: .5rem; }
+.booking-widget iframe { max-width: 100%; }
+.booking-widget .button:first-child { margin-top: 0; }
+.shop-art { background: var(--butter); }
+.shop-art img { width: min(100%, 17rem); }
+.shop-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.site-footer { background: var(--sage); border-top: 1px solid #c7d4c3; }
+.footer-inner { padding-block: 1.15rem; }
+.footer-inner p { color: var(--green); font-size: .9rem; }
+
+@media (max-width: 740px) {
+  .hero, .booking-panel { grid-template-columns: 1fr; }
+  .brand-panel, .shop-art { min-height: 16rem; }
+  .shop-art img { width: 12rem; }
+  .section-head { display: grid; gap: .65rem; }
+  .shop-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .wrap { width: calc(100% - 2rem); }
+  .header-inner { align-items: flex-start; flex-direction: column; gap: .3rem; }
+  .cards, .community { grid-template-columns: 1fr; }
+  .community img { width: 8rem; }
+  .footer-inner { flex-wrap: wrap; }
+}
+
+/* Kingston storefront, founder story and visit details. */
+.photo-frame { overflow: hidden; border-radius: .85rem; background: var(--peach); }
+.photo-frame img { width: 100%; }
+.storefront { border-radius: 5rem 5rem .85rem .85rem; border: .6rem solid var(--peach); }
+.storefront img { aspect-ratio: 1.07; object-fit: cover; }
+.brand-strip { margin-bottom: 2.25rem; }
+.brand-strip .brand-panel { min-height: 0; padding: .85rem 1rem; border-radius: .75rem; }
+.brand-strip .brand-panel::before { inset: .35rem; }
+.brand-strip .banner { width: min(260px, 70%); }
+.brand-strip .stitch-top { top: 23%; }
+.brand-strip .stitch-bottom { bottom: 20%; }
+.community-link { display: inline-block; margin-top: 1rem; }
+.story-copy > p:not([class]) { margin-top: 1.15rem; max-width: 58ch; }
+.story-copy .text-link { display: inline-block; margin-top: 1.2rem; }
+.portrait { width: min(100%, 26rem); justify-self: center; }
+.visit-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.4rem, 5vw, 4rem);
+  align-items: center;
+  margin-bottom: 3.5rem;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  border-radius: .85rem;
+  background: var(--sage);
+}
+.visit-preview .photo-frame img { aspect-ratio: 1.4; object-fit: cover; object-position: center 24%; }
+.visit-preview .window-photo img { object-position: center 58%; }
+.visit-hero address { margin-top: 1.35rem; font-style: normal; }
+.contact-line { margin-top: 1rem; overflow-wrap: anywhere; }
+.hours { margin: 1.2rem 0 0; }
+.hours div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem .8rem; border-bottom: 1px solid #b6c4af; padding: .65rem 0; }
+.hours dt { font-weight: 650; }
+.hours dd { margin: 0; }
+.home-visit { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--line); padding-block: 1.5rem 2.5rem; }
+.home-visit p { margin-top: .45rem; }
+.footer-contact { display: grid; gap: .2rem; font-size: .9rem; overflow-wrap: anywhere; }
+.footer-contact a { color: var(--green); text-underline-offset: .2em; }
+
+@media (max-width: 740px) {
+  .header-inner { align-items: flex-start; flex-direction: column; gap: .35rem; }
+  .visit-preview { grid-template-columns: 1fr; }
+  .portrait { justify-self: start; }
+}
+
+.social-links { display: flex; flex-wrap: wrap; gap: .35rem 1rem; }
+.shop-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+}
+.shop-gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: .65rem;
+}
